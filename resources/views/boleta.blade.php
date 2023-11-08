@@ -33,48 +33,22 @@
 <body>
     <div class="container">
         <div class="header">
-            Boleta Electoral
+        {{$title}}
         </div>
+        @foreach ($frentes as $frente)
         <div class="election-title">
-            Elecciones Generales
+            {{@$frente->NOMBRE_FRENTE}}
         </div>
-        <div class="candidate-list">
-            <div class="candidate-item">
-                <label>
-                    <input type="radio" name="president" value="candidate1"> Candidato 1 - Partido A
-                </label>
+            @foreach ($frente->candidatos as $candidato)
+            <div class="candidate-list">
+                <div class="candidate-item">
+                    <label>
+                        <input type="radio" name="president" value="candidate1"> {{$candidato->CARGO}}
+                    </label>
+                </div>
             </div>
-            <div class="candidate-item">
-                <label>
-                    <input type="radio" name="president" value="candidate2"> Candidato 2 - Partido B
-                </label>
-            </div>
-            <div class="candidate-item">
-                <label>
-                    <input type="radio" name="president" value="candidate3"> Candidato 3 - Partido C
-                </label>
-            </div>
-        </div>
-        <div class="election-title">
-            Elección de Diputados
-        </div>
-        <div class="candidate-list">
-            <div class="candidate-item">
-                <label>
-                    <input type="radio" name="deputy" value="candidate4"> Candidato 4 - Partido A
-                </label>
-            </div>
-            <div class="candidate-item">
-                <label>
-                    <input type="radio" name="deputy" value="candidate5"> Candidato 5 - Partido B
-                </label>
-            </div>
-            <div class="candidate-item">
-                <label>
-                    <input type="radio" name="deputy" value="candidate6"> Candidato 6 - Partido C
-                </label>
-            </div>
-        </div>
+            @endforeach
+        @endforeach
     </div>
 </body>
 </html>

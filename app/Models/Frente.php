@@ -14,8 +14,8 @@ class Frente extends Model
     public $increment = true;
     protected $fillable = ['ID_FRENTE', 'NOMBRE_FRENTE', 'LOGO_FRENTE', 'ACTIVO'];
 
-    public function relacion_candi_frente(){
-        return $this->hasMany(Candidato::class, 'ID_CANDIDATO', $this->primaryKey);
+    public function candidatos(){
+        return $this->hasMany(Candidato::class, 'ID_FRENTE', 'id');
     }
 
     public function relacion_elecc_frente(){
